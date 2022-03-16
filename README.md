@@ -1,4 +1,4 @@
-# online-cinema-vue3-deploy
+# online-cinema-vue
 
 ## Project setup
 ```

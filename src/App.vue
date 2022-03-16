@@ -1,10 +1,50 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div>
+    <HeaderComponent />
+    <router-view />
+    <FooterComponent />
+  </div>
 </template>
+
+<script>
+import HeaderComponent from "@/components/HeaderComponent.vue";
+import FooterComponent from "@/components/FooterComponent.vue";
+import { API, setAuthToken } from "@/config/api";
+import { useStore } from "vuex";
+import { onMounted } from "vue";
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
+
+export default {
+  name: "App",
+  components: {
+    HeaderComponent,
+    FooterComponent,
+  },
+  setup() {
+    const store = useStore();
+
+    onMounted(async () => {
+      try {
+        const response = await API.get("/check-auth");
+
+        if (response.status === 404) {
+          store.commit("LOGOUT_USER");
+        }
+
+        let payload = response.data.data.user;
+        payload.token = localStorage.token;
+
+        store.commit("LOGIN_USER", payload);
+      } catch (error) {
+        console.log(error);
+      }
+    });
+  },
+};
+</script>
 
 <style>
 #app {
@@ -12,19 +52,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  background-color: rgb(36, 35, 35);
+  color: white;
 }
 
 nav {
   padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
 }
 </style>
