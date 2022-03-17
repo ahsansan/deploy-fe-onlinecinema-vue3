@@ -41,7 +41,10 @@
     <div v-else>
       <p data-aos="fade-left">Film Kosong</p>
     </div>
-    <div data-aos="fade-right">
+    <div
+      class="d-flex justify-content-center align-items-center flex-column"
+      data-aos="fade-right"
+    >
       <h2
         style="
           color: white;
@@ -52,8 +55,13 @@
       >
         List Film
       </h2>
-      <div class="container-list-film">
-        <div class="list-films" v-for="film in films" :key="film.id">
+      <div class="container-list-film row">
+        <div
+          class="list-films col-md-2 col"
+          v-for="film in films"
+          :key="film.id"
+          style="margin: 10px"
+        >
           <router-link :to="{ name: 'detail', params: { id: film.id } }">
             <img :src="film.tumbnail" :alt="film.title" class="img-film" />
           </router-link>
@@ -126,20 +134,20 @@ export default {
   text-align: left;
 }
 .container-list-film {
-  max-width: 100%;
+  max-width: 90%;
   padding-left: 5%;
   padding-right: 5%;
   margin-top: 25px;
+  margin-bottom: 25px;
   display: flex;
   flex-direction: row;
 }
 .list-films {
   flex: 1;
-  margin: 10px;
 }
 .img-film {
-  width: 200px;
-  height: 290px;
+  width: 180px;
+  height: 250px;
   border-radius: 5px;
 }
 .container-utama {
@@ -208,12 +216,11 @@ export default {
   }
   .list-films {
     flex: 1;
-    width: 50%;
+    width: 90%;
     padding-bottom: 10px;
-    margin: 5px;
   }
   .img-film {
-    width: 100%;
+    width: 300px;
     height: 100%;
   }
   .highlight-film {
