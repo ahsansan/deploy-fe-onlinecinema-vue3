@@ -57,6 +57,7 @@
           class="list-films col-md-2 mb-2"
           v-for="film in films"
           :key="film.id"
+          style="margin: 10px"
         >
           <router-link :to="{ name: 'detail', params: { id: film.id } }">
             <img :src="film.tumbnail" :alt="film.title" class="img-film" />
@@ -130,8 +131,9 @@ export default {
   text-align: left;
 }
 .container-list-film {
-  max-width: 90%;
+  max-width: 100%;
   padding-left: 5%;
+  padding-right: 5%;
   margin-top: 25px;
   display: flex;
   flex-direction: row;
@@ -140,8 +142,8 @@ export default {
   flex: 1;
 }
 .img-film {
-  width: 180px;
-  height: 250px;
+  width: 200px;
+  height: 290px;
   border-radius: 5px;
 }
 .container-utama {
