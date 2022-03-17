@@ -217,6 +217,7 @@ export default {
   align-items: center;
   border-radius: 10px;
   margin-bottom: 20px;
+  padding: 5px 10px;
   cursor: pointer;
 }
 .tombol-upload-payment:hover {
