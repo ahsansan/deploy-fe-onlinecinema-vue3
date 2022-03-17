@@ -2,7 +2,7 @@
   <div
     class="mt-5 mb-5 container d-flex justify-content-center align-items-center"
   >
-    <div class="container-form-edit-profile">
+    <div class="container-form-edit-profile" data-aos="fade-up">
       <h1 class="mb-4 judul-add-film">Edit Profile</h1>
       <div v-if="status.message">
         <div class="alert alert-danger" variant="danger">
@@ -81,6 +81,7 @@ import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { reactive, ref, onMounted } from "vue";
 import { API } from "@/config/api";
+import AOS from "aos";
 import Swal from "sweetalert2";
 
 export default {
@@ -106,6 +107,7 @@ export default {
     };
 
     onMounted(async () => {
+      AOS.init();
       try {
         const response = await API.get(`user/${store.state.user.id}`);
         const user = response.data.data.user;

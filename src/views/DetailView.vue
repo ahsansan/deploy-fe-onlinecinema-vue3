@@ -2,14 +2,14 @@
   <div class="an-container-detail" fluid>
     <div class="container-utama-detail">
       <div class="container-detail">
-        <div class="isi-detail-tumbnail">
+        <div class="isi-detail-tumbnail" data-aos="fade-right">
           <img
             :src="film.tumbnail"
             alt="{{film.title}}"
             class="tumbnail-film-detail"
           />
         </div>
-        <div class="isi-detail">
+        <div class="isi-detail" data-aos="fade-left">
           <div class="detail-judul-harga">
             <h1 class="mb-4 judul-film-detail">{{ film.title }}</h1>
             <div v-if="trans?.status === 'Approved'"></div>
@@ -80,6 +80,7 @@ import { useRoute } from "vue-router";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 import Swal from "sweetalert2";
+import AOS from "aos";
 import ModalPurchaseComponent from "@/components/ModalPurchaseComponent.vue";
 
 export default {
@@ -127,6 +128,7 @@ export default {
     onMounted(() => {
       getFilm();
       getTransaction();
+      AOS.init();
     });
 
     return {
@@ -262,6 +264,8 @@ export default {
   }
   .tumbnail-film-detail {
     margin-left: 20px;
+    width: 300px;
+    height: 100%;
   }
   .detail-judul-harga {
     flex-direction: column;

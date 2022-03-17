@@ -1,7 +1,7 @@
 <template>
   <div class="mt-5" style="min-height: 77vh">
     <div class="profile-main-container">
-      <div class="profile-container">
+      <div class="profile-container" data-aos="fade-right">
         <h1 class="mb-4 my-profile">My Profile</h1>
         <div class="d-flex justify-content-start align-item-center">
           <div class="d-flex flex-column justify-content-between">
@@ -34,7 +34,7 @@
           </div>
         </div>
       </div>
-      <div class="profile-container">
+      <div class="profile-container" data-aos="fade-left">
         <div v-if="trans.length">
           <h1 class="mb-4 my-profile">History Transaction</h1>
           <div
@@ -98,6 +98,7 @@ import { useStore } from "vuex";
 import { API } from "@/config/api";
 import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
+import AOS from "aos";
 
 export default {
   name: "ProfileView",
@@ -130,6 +131,7 @@ export default {
     onMounted(() => {
       getUser();
       getTrans();
+      AOS.init();
     });
 
     return {

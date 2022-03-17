@@ -1,5 +1,5 @@
 <template>
-  <div class="container-auth">
+  <div class="container-auth" data-aos="fade-left">
     <div class="container-form-auth">
       <div class="switch-button-container">
         <button
@@ -31,6 +31,7 @@ import RegisterComponent from "@/components/RegisterComponent.vue";
 import { onMounted, ref } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
+import AOS from "aos";
 
 export default {
   name: "AuthView",
@@ -47,6 +48,7 @@ export default {
       if (store.state.isLogin === true) {
         router.push("/");
       }
+      AOS.init();
     });
 
     const switchRegister = () => {

@@ -1,5 +1,5 @@
 <template>
-  <div class="container mt-5 mb-5" style="min-height: 77vh">
+  <div class="container mt-5 mb-5" style="min-height: 77vh" data-aos="fade-up">
     <h1 class="mb-4 ms-4 judul-my-film">My List Film</h1>
     <div v-if="myFilms.length">
       <div style="text-align: left" class="film-list-container">
@@ -26,6 +26,7 @@
 <script>
 import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
+import AOS from "aos";
 import { API } from "@/config/api";
 
 export default {
@@ -45,6 +46,7 @@ export default {
 
     onMounted(() => {
       getMyFilms();
+      AOS.init();
     });
 
     return {

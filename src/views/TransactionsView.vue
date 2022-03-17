@@ -1,5 +1,9 @@
 <template>
-  <div class="mt-5 container" style="min-height: 71vh; text-align: left">
+  <div
+    class="mt-5 container"
+    style="min-height: 71vh; text-align: left"
+    data-aos="fade-up"
+  >
     <h1 class="mb-4 judul-transaksi">Incoming Transaction</h1>
     <div v-if="msg.text">
       <div class="alert alert-success" variant="success">
@@ -135,6 +139,7 @@
 <script>
 import { ref, onMounted } from "vue";
 import { API } from "@/config/api";
+import AOS from "aos";
 
 export default {
   name: "TransactionsView",
@@ -153,6 +158,7 @@ export default {
 
     onMounted(() => {
       getTransactions();
+      AOS.init();
     });
 
     const updateStatus = async (id, val) => {

@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-5 container">
+  <div class="mt-5 container" data-aos="fade-up">
     <h1 class="mb-4 judul-add-film">Add Film</h1>
     <div v-if="status.message">
       <div class="alert alert-danger" variant="danger">
@@ -108,6 +108,7 @@ import { useRouter } from "vue-router";
 import { ref, reactive, onMounted } from "vue";
 import { API } from "@/config/api";
 import Swal from "sweetalert2";
+import AOS from "aos";
 
 export default {
   name: "AddFilmView",
@@ -147,6 +148,7 @@ export default {
 
     onMounted(() => {
       getCategories();
+      AOS.init();
     });
 
     const handleOnSubmit = async () => {

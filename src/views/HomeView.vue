@@ -1,7 +1,7 @@
 <template>
   <div class="container-home" fluid>
     <div class="container-utama" v-if="films.length">
-      <div>
+      <div data-aos="fade-left">
         <div
           class="highlight-film"
           v-bind:style="{
@@ -39,9 +39,9 @@
       </div>
     </div>
     <div v-else>
-      <p>Film Kosong</p>
+      <p data-aos="fade-left">Film Kosong</p>
     </div>
-    <div>
+    <div data-aos="fade-right">
       <h2
         style="
           color: white;
@@ -69,6 +69,7 @@
 
 <script>
 import { API } from "@/config/api";
+import AOS from "aos";
 import { onMounted, ref } from "vue";
 
 export default {
@@ -88,6 +89,7 @@ export default {
 
     onMounted(() => {
       getFilms();
+      AOS.init();
     });
 
     return {
@@ -212,7 +214,7 @@ export default {
     padding-bottom: 10px;
   }
   .img-film {
-    width: 80%;
+    width: 300px;
     height: 100%;
   }
   .highlight-film {
