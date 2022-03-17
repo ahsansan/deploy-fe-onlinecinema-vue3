@@ -53,12 +53,7 @@
         List Film
       </h2>
       <div class="container-list-film">
-        <div
-          class="list-films"
-          v-for="film in films"
-          :key="film.id"
-          style="margin: 10px"
-        >
+        <div class="list-films" v-for="film in films" :key="film.id">
           <router-link :to="{ name: 'detail', params: { id: film.id } }">
             <img :src="film.tumbnail" :alt="film.title" class="img-film" />
           </router-link>
@@ -140,6 +135,7 @@ export default {
 }
 .list-films {
   flex: 1;
+  margin: 10px;
 }
 .img-film {
   width: 200px;
@@ -214,9 +210,10 @@ export default {
     flex: 1;
     width: 50%;
     padding-bottom: 10px;
+    margin: 5px;
   }
   .img-film {
-    width: 300px;
+    width: 100%;
     height: 100%;
   }
   .highlight-film {
