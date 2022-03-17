@@ -52,9 +52,9 @@
       >
         List Film
       </h2>
-      <div class="container-list-film row">
+      <div class="container-list-film">
         <div
-          class="list-films col-md-2 mb-2"
+          class="list-films"
           v-for="film in films"
           :key="film.id"
           style="margin: 10px"
