@@ -203,6 +203,7 @@ export default {
   .container-list-film {
     width: 100%;
     margin-top: 25px;
+    margin-left: 20px !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
