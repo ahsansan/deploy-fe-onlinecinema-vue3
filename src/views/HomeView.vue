@@ -131,7 +131,7 @@ export default {
 }
 .container-list-film {
   max-width: 90%;
-  margin-left: 50px !important;
+  padding-left: 5%;
   margin-top: 25px;
   display: flex;
   flex-direction: row;
@@ -203,7 +203,6 @@ export default {
   .container-list-film {
     width: 100%;
     margin-top: 25px;
-    margin-left: 20px !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
